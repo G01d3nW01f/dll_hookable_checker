@@ -29,3 +29,15 @@ A lightweight tool to identify potentially hookable DLLs loaded by running Windo
 ### Dependencies
 ```bash
 go get golang.org/x/sys/windows
+```
+## CrossCompile
+```bash
+GOOS=windows GOARCH=amd64 go build -o dll_checker.exe
+```
+### sample
+```bash
+Scanning running processes for hookable and risky DLLs...
+Process: C:\Test\testprog.exe (PID: 1234)
+  DLL: C:\Test\test.dll [Hookable: true, Score: 50, Reason: Non-standard path]
+  DLL: C:\Windows\System32\kernel32.dll [Hookable: true, Score: 30, Reason: Common hook target]
+```
